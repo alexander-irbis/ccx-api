@@ -9,12 +9,21 @@ use crate::api::prime::prelude::*;
 #[cfg_attr(feature = "db", derive(AsExpression, FromSqlRow))]
 #[cfg_attr(feature = "db", sql_type = "diesel::sql_types::Text")]
 pub enum PortfolioWalletType {
-    /// A trading wallet.
-    #[serde(rename = "TRADING")]
-    Trading,
     /// A crypto vault.
     #[serde(rename = "VAULT")]
     Vault,
+    /// A trading wallet.
+    #[serde(rename = "TRADING")]
+    Trading,
+    /// Other wallet types (like consumer, etc.).
+    #[serde(rename = "WALLET_TYPE_OTHER")]
+    Other,
+    /// A QC wallet.
+    #[serde(rename = "QC")]
+    Qc,
+    /// An Onchain wallet
+    #[serde(rename = "ONCHAIN")]
+    Onchain,
 }
 #[cfg(feature = "db")]
 forward_display_to_serde!(AccountPortfolioWalletType);

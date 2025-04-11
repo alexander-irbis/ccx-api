@@ -17,6 +17,8 @@ pub enum ActivityCategory {
     Admin,
     #[serde(rename = "ACTIVITY_CATEGORY_ALLOCATION")]
     Allocation,
+    #[serde(rename = "ACTIVITY_CATEGORY_LENDING")]
+    Lending,
 }
 #[cfg(feature = "db")]
 forward_display_to_serde!(ActivityCategory);
@@ -32,6 +34,7 @@ impl ActivityCategory {
             ActivityCategory::Account => "ACTIVITY_CATEGORY_ACCOUNT",
             ActivityCategory::Admin => "ACTIVITY_CATEGORY_ADMIN",
             ActivityCategory::Allocation => "ACTIVITY_CATEGORY_ALLOCATION",
+            ActivityCategory::Lending => "ACTIVITY_CATEGORY_LENDING",
         }
     }
 }
